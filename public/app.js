@@ -1,8 +1,14 @@
-const root = document.querySelector('#root');
-function click(msg) {
-  alert(msg);
+const root = document.querySelector("#root");
+function App() {
+  const [count, setCount] = React.useState(0);
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      setCount(count - 1);
+    }
+  }, "-"), /*#__PURE__*/React.createElement("span", null, count), /*#__PURE__*/React.createElement("button", {
+    onClick: function () {
+      setCount(count + 1);
+    }
+  }, "+"));
 }
-const element = /*#__PURE__*/React.createElement("button", {
-  onClick: click.bind(this, "Hello, aku di klik")
-}, "Click me");
-ReactDOM.render(element, root);
+ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

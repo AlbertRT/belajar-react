@@ -1,9 +1,27 @@
-const root = document.querySelector('#root');
+const root = document.querySelector("#root");
 
-function click(msg) {
-    alert(msg)
+function App() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <>
+      <button
+        onClick={function () {
+          setCount(count - 1);
+        }}
+      >
+        -
+      </button>
+      <span>{count}</span>
+      <button
+        onClick={function () {
+          setCount(count + 1);
+        }}
+      >
+        +
+      </button>
+    </>
+  );
 }
 
-const element = <button onClick={click.bind(this, "Hello, aku di klik")} >Click me</button>
-
-ReactDOM.render(element, root)
+ReactDOM.render(<App />, root);

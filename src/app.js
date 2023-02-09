@@ -1,13 +1,6 @@
 const root = document.querySelector('#root');
 
-const element = (
-    <div style={{
-        width: '200px',
-        height: '200px',
-        backgroundColor:'blue'
-    }}>
-        Hello
-    </div>
-)
+const className = "box"
+const element = <div className={className}></div>;
 
 ReactDOM.render(element, root)

@@ -1,9 +1,6 @@
 const root = document.querySelector('#root');
+const className = "box";
 const element = /*#__PURE__*/React.createElement("div", {
-  style: {
-    width: '200px',
-    height: '200px',
-    backgroundColor: 'blue'
-  }
-}, "Hello");
+  className: className
+});
 ReactDOM.render(element, root);

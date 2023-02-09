@@ -1,14 +1,23 @@
 const root = document.querySelector("#root");
 function App() {
+  const [diklik, setKlik] = React.useState(false);
   const [count, setCount] = React.useState(0);
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("button", {
+  React.useEffect(function () {
+    console.log('exec');
+    return function () {
+      console.log('destroy');
+    };
+  });
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("h1", {
+    id: "judul"
+  }, "Hello, ini adalah judul"), /*#__PURE__*/React.createElement("button", {
     onClick: function () {
-      setCount(count - 1);
+      setKlik(true);
     }
-  }, "-"), /*#__PURE__*/React.createElement("span", null, count), /*#__PURE__*/React.createElement("button", {
+  }, "Klik saya"), /*#__PURE__*/React.createElement("button", {
     onClick: function () {
       setCount(count + 1);
     }
-  }, "+"));
+  }, "Tambah"), "nilai saat ini: ", count);
 }
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

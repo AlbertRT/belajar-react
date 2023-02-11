@@ -1,21 +1,13 @@
 const root = document.querySelector("#root");
 function App() {
-  const [nama, setNama] = React.useState("");
-  function submit(e) {
-    e.preventDefault();
-    console.log("nama: " + nama);
-  }
-  return /*#__PURE__*/React.createElement("form", {
-    onSubmit: submit
-  }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("label", null, "Nama:"), /*#__PURE__*/React.createElement("input", {
-    type: "text",
-    name: "nama",
-    value: nama,
-    onChange: function (e) {
-      setNama(e.target.value);
+  React.useEffect(function () {
+    async function getData() {
+      const request = await fetch("https://api.spaceflightnewsapi.net/v3/blogs");
+      const response = await request.json();
+      console.log(request);
     }
-  })), /*#__PURE__*/React.createElement("button", {
-    type: "submit"
-  }, "Kirim"));
+    getData();
+  }, []);
+  return /*#__PURE__*/React.createElement("h1", null, "Data Fetch");
 }
 ReactDOM.render( /*#__PURE__*/React.createElement(App, null), root);

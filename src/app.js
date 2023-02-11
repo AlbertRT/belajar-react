@@ -1,29 +1,20 @@
 const root = document.querySelector("#root");
 
 function App() {
-  const [nama, setNama] = React.useState("");
 
-  function submit(e) {
-    e.preventDefault();
+     React.useEffect(function () {
+          async function getData() {
+               const request = await fetch(
+                 "https://api.spaceflightnewsapi.net/v3/blogs"
+               );
+               const response = await request.json()
 
-    console.log("nama: " + nama);
-  }
-  return (
-    <form onSubmit={submit}>
-      <div>
-        <label>Nama:</label>
-        <input
-          type="text"
-          name="nama"
-          value={nama}
-          onChange={function (e) {
-            setNama(e.target.value);
-          }}
-        />
-      </div>
-      <button type="submit">Kirim</button>
-    </form>
-  );
+               console.log(request)
+          }
+          getData()
+     }, []);
+
+     return <h1>Data Fetch</h1>
 }
 
 ReactDOM.render(<App />, root);
